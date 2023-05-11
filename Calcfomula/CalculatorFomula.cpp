@@ -43,12 +43,14 @@ auto removeSpaces = [](std::string &str)
 int main(int, char **)
 {
     // string fomula = "1+3+(4-2)*5/5";
-    string fomula = "11.3+3.2-10.0+0.2";
+    string fomula = "10.0*2.0/2.0+1.0";
     deque<double> dq_num;
     deque<char> dq_op;
 
     removeSpaces(fomula);
     int num_len = 0;
+    int high_priority_calculate = 0;
+    int create_new_num = 0;
     for (int i = 0; i < fomula.size() + 1; i++)
     {
         // 如果遇到是数字，记录数字的长度
@@ -68,6 +70,41 @@ int main(int, char **)
             // 将字符串的数字部分进行切片，转换成double类型，存入deque中
             dq_num.push_back(stod(fomula.substr(i - num_len, num_len)));
             num_len = 0;
+            if (dq_op.size() > 1)
+            {
+                auto iter_op = dq_op.rbegin();
+                char op1 = *iter_op;
+                char op2 = *(iter_op + 1);
+                cout << "op1:" << op1 << " op2:" << op2 << endl;
+                auto num_size = 0;
+                /*如果当前运算符的优先级大于前一个运算符的优先级，那么标志位自增1,
+                需要将队列尾的数字与下一个即将到来的数字进行优先运算*/
+                if (priority(op1) > priority(op2))
+                {
+                    high_priority_calculate+=1;
+                    // 如果当前运算符是最后一个高优先级运算符，那么标志位自增1
+                    create_new_num = i==fomula.size() ? 1 : 0;
+                }
+                else
+                {
+                    create_new_num+=1;
+                }
+                // 当标志位大于1时，说明有高优先级的运算符，进行高优先级的运算
+                if (high_priority_calculate > 0 && create_new_num > 0) {
+                    auto iter_num = dq_num.rbegin();
+                    double num1 = *iter_num;
+                    double num2 = *(iter_num + 1);
+                    dq_num.pop_back();
+                    dq_num.pop_back();
+                    double result = calculate(num2, num1, i == fomula.size() ? op1 : op2);
+                    cout << "high priority calculate result:" << result << endl;
+                    dq_num.push_back(result);
+                    dq_op.erase(dq_op.end() - (i == fomula.size() ? 1 : 2));
+                    high_priority_calculate = 0;
+                    create_new_num = 0;
+                }
+            }
+            
         }
     }
     cout << "dq_num:";
