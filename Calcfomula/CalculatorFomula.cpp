@@ -44,7 +44,7 @@ int main(int, char **)
 {
     // string fomula = "1+3+(4-2)*5/5";
     // string fomula = "10.0*2.0/2.0+1.0";
-    string fomula = "2.0*(1.0+3.0)-4.0";
+    string fomula = "2.0*(2.0*3.0-3.0)-4.0";
     deque<double> dq_num;
     deque<char> dq_op;
 
@@ -52,6 +52,7 @@ int main(int, char **)
     int num_len = 0;
     int high_priority_calculate = 0;
     int create_new_num = 0;
+    int end_flag = 0;
     for (int i = 0; i < fomula.size() + 1; i++)
     {
         // 如果遇到是数字，记录数字的长度
@@ -93,20 +94,20 @@ int main(int, char **)
                     iter_op = dq_op.rbegin();
                 }
                 dq_op.erase(dq_op.end() - 1);
-                dq_op.push_back(')');
+                end_flag  = 1;
+                high_priority_calculate = 0;
                 continue;
             }
 
             if (i != fomula.size())
-            {
-                if (dq_op.back()=='))')
-                {
-                    dq_op.pop_back();
-                    
-                }
-                
+            { 
                 // 将运算符存入deque中
                 dq_op.push_back(fomula[i]);
+                if (end_flag == 1)
+                {
+                    end_flag = 0;
+                    continue;
+                }
             }
             cout << "address:" << i - num_len << "  " << i << endl;
             cout << "Slice " << fomula.substr(i - num_len, num_len) << endl;
@@ -122,6 +123,10 @@ int main(int, char **)
                 auto num_size = 0;
                 /*如果当前运算符的优先级大于前一个运算符的优先级，那么标志位自增1,
                 需要将队列尾的数字与下一个即将到来的数字进行优先运算*/
+                if (op2 == '(')
+                {
+                    continue;
+                }
                 if (priority(op1) > priority(op2))
                 {
                     high_priority_calculate += 1;
@@ -148,25 +153,6 @@ int main(int, char **)
                     create_new_num = 0;
                 }
             }
-            // if (fomula[i]==')')
-            // {
-            //     auto iter_op = dq_op.rbegin();
-            //     while (*iter_op != '(')
-            //     {
-            //         char op = *iter_op;
-            //         auto iter_num = dq_num.rbegin();
-            //         double num1 = *iter_num;
-            //         double num2 = *(iter_num + 1);
-            //         dq_num.pop_back();
-            //         dq_num.pop_back();
-            //         double result = calculate(num2, num1, op);
-            //         cout << "result:" << result << endl;
-            //         dq_num.push_back(result);
-            //         dq_op.pop_back();
-            //         iter_op++;
-            //     }
-            //     dq_op.pop_back();
-            // }
         }
         
     }
