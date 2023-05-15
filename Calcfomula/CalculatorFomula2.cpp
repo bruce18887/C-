@@ -1,6 +1,7 @@
 #include <iostream>
 #include <deque>
 #include <algorithm>
+#include <map>
 using namespace std;
 
 #define DEBUG 0
@@ -15,28 +16,16 @@ class fomulacalculate
         deque<double> dq_num;
         deque<char> dq_op;
         int calc_index = 0;
-
-        // judge the priority of operator
-        int priority(char op)
-        {
-            if (op == '*' || op == '/')
-            {
-                return 2;
-            }
-            else if (op == '+' || op == '-')
-            {
-                return 1;
-            }
-            else if (op == '(' || op == ')')
-            {
-                return 10;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
+        // Operator priority hash table
+        map<char, int> priority = {
+            {'+', 1},
+            {'-', 1},
+            {'*', 2},
+            {'/', 2},
+            {'(', 10},
+            {')', 10}
+        };
+        
         template <typename T>
         T calculate(T num1, T num2, char op)
         {
@@ -62,7 +51,7 @@ class fomulacalculate
                 char op1 = *iter;
                 char op2 = *(iter + 1);
                 // 如果当前运算符的优先级大于前一个运算符的优先级，那么就进行运算
-                if(priority(op1) > priority(op2))
+                if(priority[op1] > priority[op2])
                 {
                     double num1 = dq_num.back();
                     dq_num.pop_back();
@@ -80,6 +69,7 @@ class fomulacalculate
         {
             dq_num.clear();
             dq_op.clear();
+
             calc_index = num;
         }
         // 添加数字
