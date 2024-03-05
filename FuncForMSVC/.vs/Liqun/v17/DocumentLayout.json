@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\zhuliqun\\Desktop\\C\u002B\u002B\\VC\u002B\u002B\\CplusplusUtilities\\FuncForMSVC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2BC38279-D5F9-4845-84EA-701C37C37EDF}|L2\\L2.vcxproj|C:\\Users\\zhuliqun\\Desktop\\C\u002B\u002B\\VC\u002B\u002B\\CplusplusUtilities\\FuncForMSVC\\L2\\L2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2BC38279-D5F9-4845-84EA-701C37C37EDF}|L2\\L2.vcxproj|solutionrelative:L2\\L2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBAEEE58-9816-47F4-82B6-436FAE43AA54}|L1\\L1.vcxproj|C:\\Users\\zhuliqun\\Desktop\\C\u002B\u002B\\VC\u002B\u002B\\CplusplusUtilities\\FuncForMSVC\\L1\\L1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DBAEEE58-9816-47F4-82B6-436FAE43AA54}|L1\\L1.vcxproj|solutionrelative:L1\\L1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "L2.cpp",
+              "DocumentMoniker": "C:\\Users\\zhuliqun\\Desktop\\C\u002B\u002B\\VC\u002B\u002B\\CplusplusUtilities\\FuncForMSVC\\L2\\L2.cpp",
+              "RelativeDocumentMoniker": "L2\\L2.cpp",
+              "ToolTip": "C:\\Users\\zhuliqun\\Desktop\\C\u002B\u002B\\VC\u002B\u002B\\CplusplusUtilities\\FuncForMSVC\\L2\\L2.cpp",
+              "RelativeToolTip": "L2\\L2.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-05T06:39:27.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "L1.cpp",
+              "DocumentMoniker": "C:\\Users\\zhuliqun\\Desktop\\C\u002B\u002B\\VC\u002B\u002B\\CplusplusUtilities\\FuncForMSVC\\L1\\L1.cpp",
+              "RelativeDocumentMoniker": "L1\\L1.cpp",
+              "ToolTip": "C:\\Users\\zhuliqun\\Desktop\\C\u002B\u002B\\VC\u002B\u002B\\CplusplusUtilities\\FuncForMSVC\\L1\\L1.cpp",
+              "RelativeToolTip": "L1\\L1.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-05T06:38:45.793Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
