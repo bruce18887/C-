@@ -1,6 +1,6 @@
 
-build/
-.vscode/
-.vs/
-x64/
-Debug/
+build
+.vscode
+.vs
+x64
+Debug
